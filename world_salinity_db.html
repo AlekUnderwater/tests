@@ -5,10 +5,12 @@
 <script language="javascript" type="text/javascript">
 
 var styDB;
+var styLength;
 
 var xhr = new XMLHttpRequest();
 xhr.onload = function() {
   styDB = xhr.responseXML.activeElement.childNodes;
+  styDBLength = styDB.length;
 }
 
 xhr.onerror = function() {
@@ -23,11 +25,19 @@ function onSearch() {
   t_lt = document.getElementById("lat_deg_input").value;
   t_ln = document.getElementById("lon_deg_input").value;
 
+  var lt;
+  var ln;
+  var found = false;
+  for (var idx = 0; (i < styDBLength) && (!found); idx++) {
 
+    lt = styDB[idx].getEmentsByTagName("Lat")[0].childNodes[0].nodeValue;
+    ln = styDB[idx].getEmentsByTagName("Lon")[0].childNodes[0].nodeValue;
 
+    if (lt == ln) {
+      found = true;
+    }
 
-  if (styDB.length == 0)
-  return;
+  }
 }
 
 
