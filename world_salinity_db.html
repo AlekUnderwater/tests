@@ -28,7 +28,7 @@ function onSearch() {
   var lt;
   var ln;
   var found = false;
-  for (var idx = 0; (i < styDBLength) && (!found); idx++) {
+  for (var idx = 0; (idx < styDBLength) && (!found); idx++) {
 
     lt = styDB[idx].getEmentsByTagName("Lat")[0].childNodes[0].nodeValue;
     ln = styDB[idx].getEmentsByTagName("Lon")[0].childNodes[0].nodeValue;
