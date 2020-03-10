@@ -29,15 +29,20 @@ function onSearch() {
   var ln;
   var msm;
   var found = false;
+  var sty;
   for (var idx = 0; (idx < styDBLength) && (!found); idx++) {
 
-    msm = styDB[idx];
+    if (styDB[idx].nodeName == "MSDE") {
+      lt = parseFloat(styDB[idx].getElementsByTagName("Lat").textContent);
+      ln = parseFloat(styDB[idx].getElementsByTagName("Lon").textContent);
 
-    ln = msm.getEmentsByTagName("Lon")[0].childNodes[0].nodeValue;
-
-    if (lt == ln) {
-      found = true;
+      if ((lt == t_lt) && (ln == t_ln)) {
+        found = true;
+        sty = parseFloat(styDB[idx].getElementsByTagName("Sal").textContent);
+      }
     }
+
+    
 
   }
 }
