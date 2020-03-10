@@ -33,16 +33,16 @@ function onSearch() {
   for (var idx = 0; (idx < styDBLength) && (!found); idx++) {
 
     if (styDB[idx].nodeName == "MSDE") {
-      lt = parseFloat(styDB[idx].getElementsByTagName("Lat").textContent);
-      ln = parseFloat(styDB[idx].getElementsByTagName("Lon").textContent);
+      lt = parseFloat(styDB[idx].children[0].textContent);
+      ln = parseFloat(styDB[idx].children[1].textContent);
 
       if ((lt == t_lt) && (ln == t_ln)) {
         found = true;
-        sty = parseFloat(styDB[idx].getElementsByTagName("Sal").textContent);
+        sty = parseFloat(styDB[idx].children[2].textContent);
       }
     }
 
-    
+
 
   }
 }
