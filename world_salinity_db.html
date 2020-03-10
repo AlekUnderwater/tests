@@ -8,7 +8,7 @@ var styDB;
 
 var xhr = new XMLHttpRequest();
 xhr.onload = function() {
-  styDB = xhr.responseXML;
+  styDB = xhr.responseXML.activeElement.childNodes;
 }
 
 xhr.onerror = function() {
@@ -22,6 +22,9 @@ xhr.send();
 function onSearch() {
   t_lt = document.getElementById("lat_deg_input").value;
   t_ln = document.getElementById("lon_deg_input").value;
+
+
+
 
   if (styDB.length == 0)
   return;
